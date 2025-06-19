@@ -5,13 +5,19 @@ uint w_eeprom_index;
 
 //just the i2c inits
 int w_eeprom_init(void) {
-	i2c_init(W_I2C_INST, 400 * 1000);
+	
+	int status = W_EEPROM_ERR;
+
+	if(!i2c_init(W_I2C_INST, 400 * 1000)) return status;
+	else status = W_EEPROM_OK;
 	gpio_set_function(W_SCL_PIN, GPIO_FUNC_I2C);
 	gpio_set_function(W_SDA_PIN, GPIO_FUNC_I2C);
 	gpio_pull_up(W_SCL_PIN);
 	gpio_pull_up(W_SDA_PIN);
 
 	w_eeprom_index = I2C_NUM(W_I2C_INST);
+
+	return status;
 }
 
 //writes all 0xFFs! just like the device ships with :)
