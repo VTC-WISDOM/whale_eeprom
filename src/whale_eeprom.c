@@ -64,7 +64,7 @@ int w_eeprom_read(int page, uint8_t addr, uint8_t *dst, int size) {
 
 	if(page > 511) return status;
 	if(addr > 255) return status;
-	if(size > 255) return status;
+	if(size > 256) return status;
 
 	if(w_eeprom_is_busy_timeout(4) != W_EEPROM_OK) return status;
 	if(cat24_read_page(w_eeprom_index, W_EEPROM_SEL, page, addr, dst, size))
