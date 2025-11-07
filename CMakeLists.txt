@@ -8,7 +8,7 @@ add_subdirectory(./libs/rp2x_cat24m01)
 add_library(${target} INTERFACE)
 
 target_sources(${target} INTERFACE
-	src/whale_eeprom.c
+	submodules/whale_eeprom.c
 )
 
 target_include_directories(${target} INTERFACE

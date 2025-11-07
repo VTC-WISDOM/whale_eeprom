@@ -1,0 +1,4 @@
+[[submodule]]
+remote = "https://github.com/VTC-WISDOM/rp2x_cat24m01.git"
+local = "submodules/rp2x_cat24m01"
+
