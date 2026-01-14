@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.13)
 set(target "whale_eeprom_module")
 project(${target} C CXX ASM)
 
-add_subdirectory(./libs/rp2x_cat24m01)
+add_subdirectory(./submodules/rp2x_cat24m01)
 
 add_library(${target} INTERFACE)
 
